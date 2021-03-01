@@ -2,7 +2,7 @@ import './util/module-alias';
 import express, { Application } from 'express';
 import { Server } from '@overnightjs/core';
 import { ForecastController } from './controllers/forecast';
-import * as database  from "@src/database";
+import * as database from '@src/database';
 import { BeachController } from './controllers/beaches';
 
 export class SetupServer extends Server {
