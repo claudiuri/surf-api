@@ -16,7 +16,8 @@ describe('Beaches functional tests', () => {
     const user = await new User(defaultUser).save();
     token = AuthService.generateToken(user.toJSON());
   });
-  describe('When create a beach', () => {
+
+  describe('When creating a new beach', () => {
     it('should create a beach with success', async () => {
       const newBeach = {
         lat: -33.792726,
@@ -30,6 +31,7 @@ describe('Beaches functional tests', () => {
         .set({ 'x-access-token': token })
         .send(newBeach);
       expect(response.status).toBe(201);
+      //Object containing matches the keys and values, even if includes other keys such as id.
       expect(response.body).toEqual(expect.objectContaining(newBeach));
     });
 
@@ -47,7 +49,9 @@ describe('Beaches functional tests', () => {
 
       expect(response.status).toBe(422);
       expect(response.body).toEqual({
-        error:
+        code: 422,
+        error: 'Unprocessable Entity',
+        message:
           'Beach validation failed: lat: Cast to Number failed for value "invalid_string" at path "lat"',
       });
     });
