@@ -7,7 +7,7 @@ import logger from '@src/logger';
 
 @Controller('beaches')
 @ClassMiddleware(authMiddleware)
-export class BeachController {
+export class BeachesController {
   @Post('')
   public async create(req: Request, res: Response): Promise<void> {
     try {
