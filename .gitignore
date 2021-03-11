@@ -56,3 +56,4 @@ typings/
 
 # typescript compiled code
 dist/
+build/
