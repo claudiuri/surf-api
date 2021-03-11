@@ -1,5 +1,5 @@
 import { ForecastPoint } from '@src/clients/stormGlass';
-import { Beach, GoPosition } from '@src/models/beach';
+import { Beach, GeoPosition } from '@src/models/beach';
 
 // meters
 const waveHeights = {
@@ -21,8 +21,8 @@ export class Rating {
   constructor(private beach: Beach) {}
 
   public getRatingBasedOnWindAndWavePositions(
-    waveDirection: GoPosition,
-    windDirection: GoPosition
+    waveDirection: GeoPosition,
+    windDirection: GeoPosition
   ): number {
     // if wind is onshore, low rating
     if (waveDirection === windDirection) {
@@ -39,18 +39,18 @@ export class Rating {
     windDirection: string
   ): boolean {
     return (
-      (waveDirection === GoPosition.N &&
-        windDirection === GoPosition.S &&
-        this.beach.position === GoPosition.N) ||
-      (waveDirection === GoPosition.S &&
-        windDirection === GoPosition.N &&
-        this.beach.position === GoPosition.S) ||
-      (waveDirection === GoPosition.E &&
-        windDirection === GoPosition.W &&
-        this.beach.position === GoPosition.E) ||
-      (waveDirection === GoPosition.W &&
-        windDirection === GoPosition.E &&
-        this.beach.position === GoPosition.W)
+      (waveDirection === GeoPosition.N &&
+        windDirection === GeoPosition.S &&
+        this.beach.position === GeoPosition.N) ||
+      (waveDirection === GeoPosition.S &&
+        windDirection === GeoPosition.N &&
+        this.beach.position === GeoPosition.S) ||
+      (waveDirection === GeoPosition.E &&
+        windDirection === GeoPosition.W &&
+        this.beach.position === GeoPosition.E) ||
+      (waveDirection === GeoPosition.W &&
+        windDirection === GeoPosition.E &&
+        this.beach.position === GeoPosition.W)
     );
   }
 
@@ -95,20 +95,20 @@ export class Rating {
     return 1;
   }
 
-  public getPositionFromLocation(coordinates: number): GoPosition {
+  public getPositionFromLocation(coordinates: number): GeoPosition {
     if (coordinates >= 310 || (coordinates < 50 && coordinates >= 0)) {
-      return GoPosition.N;
+      return GeoPosition.N;
     }
     if (coordinates >= 50 && coordinates < 120) {
-      return GoPosition.E;
+      return GeoPosition.E;
     }
     if (coordinates >= 120 && coordinates < 220) {
-      return GoPosition.S;
+      return GeoPosition.S;
     }
     if (coordinates >= 220 && coordinates < 310) {
-      return GoPosition.W;
+      return GeoPosition.W;
     }
-    return GoPosition.E;
+    return GeoPosition.E;
   }
 
   public getRateForPoint(point: ForecastPoint): number {
