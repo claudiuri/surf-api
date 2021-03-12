@@ -48,6 +48,7 @@ export const Button = ({ children, isLoading, onClick }) => (
       fontSize: '.8em',
       textTransform: 'uppercase',
       padding: '.75em',
+      borderRadius: '5px',
       fontWeight: '600',
       ':disabled': {
         cursor: 'wait',
@@ -71,6 +72,7 @@ export const Field = ({ label, type }) => {
     <fieldset
       css={{
         backgroundColor: color.grey,
+        borderRadius: '5px',
         label: {
           position: 'absolute',
           textTransform: 'uppercase',
@@ -107,6 +109,7 @@ export function BeachFormField({ label, block, children }) {
         flexDirection: 'column',
         padding: '1.5em .5em .5em',
         margin: '.5em 0',
+        borderRadius: '5px'
       }}
     >
       <label
@@ -129,7 +132,7 @@ export const BeachFormInput = ({ type, label, pattern, placeholder }) => (
     type={type}
     id={label.split(' ').join('').toLowerCase()}
     name={label.split(' ').join('').toLowerCase()}
-    css={{ backgroundColor: color.white }}
+    css={{ backgroundColor: color.white, borderRadius: '5px', padding: ".5em" }}
     pattern={pattern}
     required
     placeholder={placeholder}
@@ -148,6 +151,7 @@ export const BeachFormSelect = ({ label, options }) => (
       ':invalid': {
         color: '#666',
       },
+      borderRadius: '5px'
     }}
   >
     <option key="position" value="" disabled selected>
@@ -181,7 +185,7 @@ export const UnAuthenticatedWrapper = ({ children }) => (
       minWidth: '20em',
       maxWidth: '90%',
       padding: '5em 2em 2em',
-      borderRadius: '2px',
+      borderRadius: '5px',
       backgroundColor: color.white,
       position: 'relative',
     }}
@@ -646,6 +650,7 @@ export const SectionForecastList = ({ children }) => (
   <section
     css={{
       position: 'relative',
+      borderRadius: '5px',
       paddingBottom: '2em',
       h4: {
         textTransform: 'uppercase',

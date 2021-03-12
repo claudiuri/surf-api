@@ -46,6 +46,7 @@ function RegisterBeachForm({ onSubmit, submitButton, styles }) {
     <div
       css={{
         boxSizing: 'border-box',
+        borderRadius: '5px',
         ...styles,
       }}
     >
@@ -55,6 +56,7 @@ function RegisterBeachForm({ onSubmit, submitButton, styles }) {
         css={{
           backgroundColor: '#eee',
           padding: '1em',
+          borderRadius: '5px'
         }}
       >
         <BeachFormField label="Beach name" block>
